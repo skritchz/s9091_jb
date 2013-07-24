@@ -34,16 +34,7 @@
  */
 #include <linux/types.h>
 #include <cust_acc.h>
-#ifdef MT6575
-#include <mach/mt6575_devs.h>
-#include <mach/mt6575_typedefs.h>
-#include <mach/mt6575_gpio.h>
-#include <mach/mt6575_pm_ldo.h>
-#endif
-
-#ifdef MT6577
 #include <mach/mt_pm_ldo.h>
-#endif
 
 /*---------------------------------------------------------------------------*/
 int bma250_cust_acc_power(struct acc_hw *hw, unsigned int on, char* devname)
@@ -58,10 +49,10 @@ int bma250_cust_acc_power(struct acc_hw *hw, unsigned int on, char* devname)
 /*---------------------------------------------------------------------------*/
 static struct acc_hw bma250_cust_acc_hw = {
     .i2c_num = 0,
-    .direction = 1,			//Ivan original = 2,0,6
+    .direction = 5,			//Ivan original = 2,0,6
     .power_id = MT65XX_POWER_NONE,  /*!< LDO is not used */
     .power_vol= VOL_DEFAULT,        /*!< LDO is not used */
-    .firlen = 16,                   /*!< don't enable low pass fileter */
+    .firlen = 5,                   /*!< don't enable low pass fileter */
     .power = bma250_cust_acc_power,        
 };
 /*---------------------------------------------------------------------------*/
