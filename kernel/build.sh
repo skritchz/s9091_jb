@@ -9,10 +9,6 @@ makeflags="-w"
 makedefs="V=0"
 makejobs=${MAKEJOBS}
 curdir=`pwd`
-if [ "${KBUILD_OUTPUT_SUPPORT}" == "yes" ];then
-  outdir=$curdir/out
-  mkdir -p $outdir
-fi
 
 usage() {
     echo "Usage: $0 {release|rebuild|clean|silent|verbose|single} [config-xxx]"
@@ -61,6 +57,13 @@ done
 
 source ../mediatek/build/shell.sh ../ kernel
 defcfg="${MTK_ROOT_GEN_CONFIG}/kconfig"
+
+if [ "${KBUILD_OUTPUT_SUPPORT}" == "yes" ];then
+  outdir=$curdir/out
+  mkdir -p $outdir
+fi
+
+
 if [ "${KBUILD_OUTPUT_SUPPORT}" == "yes" ]; then
   makeflags+=" O=$outdir"
 fi
