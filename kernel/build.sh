@@ -186,10 +186,19 @@ echo "**** Generate download images ****"
 
 if [ ! -x ${mkimg} ]; then chmod a+x ${mkimg}; fi
 
+if [ -d ../build_result ]; then
+    rm -rf ../build_result
+fi
+mkdir -p ../build_result/system/lib/modules/
+
 if [ "${KBUILD_OUTPUT_SUPPORT}" == "yes" ]; then
-  ${mkimg} ${kernel_zimg} KERNEL > out/kernel_${MTK_PROJECT}.bin
+  ${mkimg} ${kernel_zimg} KERNEL > ../build_result/kernel_${MTK_PROJECT}.bin
+  
 else
-  ${mkimg} ${kernel_zimg} KERNEL > kernel_${MTK_PROJECT}.bin
+  ${mkimg} ${kernel_zimg} KERNEL > ../build_result/kernel_${MTK_PROJECT}.bin
 fi
 
-copy_to_legacy_download_flash_folder   kernel_${MTK_PROJECT}.bin rootfs_${MTK_PROJECT}.bin
+for file in $(find . -name *.ko); do
+ cp $file ../build_result/system/lib/modules/
+done
+
