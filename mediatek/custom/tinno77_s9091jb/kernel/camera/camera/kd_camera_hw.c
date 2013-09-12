@@ -50,8 +50,8 @@ u32 pinSet[3][8] = {
                         GPIO_OUT_ZERO,                  /* OFF state */
                      GPIO_CAMERA_CMPDN_PIN,
                         GPIO_CAMERA_CMPDN_PIN_M_GPIO,
-                        GPIO_OUT_ZERO,
-                        GPIO_OUT_ONE,
+                        GPIO_OUT_ONE,                   /* ON state */
+                        GPIO_OUT_ZERO,                  /* OFF state */
                     },
                     //for sub sensor 
                     {GPIO_CAMERA_CMRST1_PIN,
@@ -138,7 +138,7 @@ u32 pinSet[3][8] = {
             if(mt_set_gpio_dir(pinSet[pinSetIdx][IDX_PS_CMPDN],GPIO_DIR_OUT)){PK_DBG("[CAMERA LENS] set gpio dir failed!! \n");}
             if(mt_set_gpio_out(pinSet[pinSetIdx][IDX_PS_CMPDN],pinSet[pinSetIdx][IDX_PS_CMPDN+IDX_PS_ON])){PK_DBG("[CAMERA LENS] set gpio failed!! \n");}
         }
-
+        mdelay(1);
         //disable inactive sensor
         if (GPIO_CAMERA_INVALID != pinSet[1-pinSetIdx][IDX_PS_CMRST]) {
             if(mt_set_gpio_mode(pinSet[1-pinSetIdx][IDX_PS_CMRST],pinSet[1-pinSetIdx][IDX_PS_CMRST+IDX_PS_MODE])){PK_DBG("[CAMERA SENSOR] set gpio mode failed!! \n");}
@@ -158,11 +158,15 @@ u32 pinSet[3][8] = {
             mdelay(10);
             if(mt_set_gpio_out(pinSet[pinSetIdx][IDX_PS_CMRST],pinSet[pinSetIdx][IDX_PS_CMRST+IDX_PS_ON])){PK_DBG("[CAMERA SENSOR] set gpio failed!! \n");}
             mdelay(1);
-
+            if(pinSetIdx == 0) {
+		     mdelay(20);
+	     }
+	     else{
             //PDN pin
             if(mt_set_gpio_mode(pinSet[pinSetIdx][IDX_PS_CMPDN],pinSet[pinSetIdx][IDX_PS_CMPDN+IDX_PS_MODE])){PK_DBG("[CAMERA LENS] set gpio mode failed!! \n");}
             if(mt_set_gpio_dir(pinSet[pinSetIdx][IDX_PS_CMPDN],GPIO_DIR_OUT)){PK_DBG("[CAMERA LENS] set gpio dir failed!! \n");}
             if(mt_set_gpio_out(pinSet[pinSetIdx][IDX_PS_CMPDN],pinSet[pinSetIdx][IDX_PS_CMPDN+IDX_PS_ON])){PK_DBG("[CAMERA LENS] set gpio failed!! \n");}
+	     }
         }   
     }
     else {//power OFF

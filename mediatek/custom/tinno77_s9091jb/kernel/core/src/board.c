@@ -545,7 +545,11 @@ struct msdc_hw msdc1_hw = {
     .dat_drv        = 0,
     .data_pins      = 4,
     .data_offset    = 0,
+#if defined TINNO_ANDROID_S9091JB_SDIO
+    .flags          = MSDC_SYS_SUSPEND | MSDC_HIGHSPEED,
+#else
     .flags          = MSDC_SYS_SUSPEND | MSDC_WP_PIN_EN | MSDC_HIGHSPEED|MSDC_SPE,
+#endif
     .dat0rddly		= 0,
 	.dat1rddly		= 0,
 	.dat2rddly		= 0,
