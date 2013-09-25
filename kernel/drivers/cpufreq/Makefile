@@ -9,8 +9,38 @@ obj-$(CONFIG_CPU_FREQ_GOV_POWERSAVE)	+= cpufreq_powersave.o
 obj-$(CONFIG_CPU_FREQ_GOV_USERSPACE)	+= cpufreq_userspace.o
 obj-$(CONFIG_CPU_FREQ_GOV_ONDEMAND)	+= cpufreq_ondemand.o
 obj-$(CONFIG_CPU_FREQ_GOV_HYBRID)	+= cpufreq_hybrid.o
+#obj-$(CONFIG_CPU_FREQ_GOV_BADASS)		+= cpufreq_badass.o
+obj-$(CONFIG_CPU_FREQ_GOV_ABYSSPLUG)		+= cpufreq_abyssplug.o
+obj-$(CONFIG_CPU_FREQ_GOV_DANCEDANCE)		+= cpufreq_dancedance.o
 obj-$(CONFIG_CPU_FREQ_GOV_CONSERVATIVE)	+= cpufreq_conservative.o
 obj-$(CONFIG_CPU_FREQ_GOV_INTERACTIVE)	+= cpufreq_interactive.o
+obj-$(CONFIG_CPU_FREQ_GOV_SMARTASS2)	+= cpufreq_smartass2.o
+#obj-$(CONFIG_CPU_FREQ_GOV_PEGASUSQ)	+= cpufreq_pegasusq.o
+#obj-$(CONFIG_CPU_FREQ_GOV_ZZMOOVE)      += cpufreq_zzmoove.o
+obj-$(CONFIG_CPU_FREQ_GOV_INTERACTIVEX)	+= cpufreq_interactivex.o
+obj-$(CONFIG_CPU_FREQ_CONSERVATIVEX)	+= cpufreq_conservativex.o
+obj-$(CONFIG_CPU_FREQ_GOV_DYNAMIC_INTERACTIVE)	+= cpufreq_dynamic_interactive.o
+obj-$(CONFIG_CPU_FREQ_GOV_INTELLIDEMAND)+= cpufreq_intellidemand.o
+obj-$(CONFIG_CPU_FREQ_GOV_LIONHEART)   	+= cpufreq_lionheart.o
+obj-$(CONFIG_CPU_FREQ_GOV_NIGHTMARE)	+= cpufreq_nightmare.o
+#obj-$(CONFIG_CPU_FREQ_GOV_SAKURACTIVE)	+= cpufreq_sakuractive.o
+obj-$(CONFIG_CPU_FREQ_GOV_WHEATLEY)  	+= cpufreq_wheatley.o
+obj-$(CONFIG_CPU_FREQ_GOV_ONDEMANDAX)	+= cpufreq_ondemandx.o
+obj-$(CONFIG_CPU_FREQ_GOV_ASSWAX)    	+= cpufreq_asswax.o
+#obj-$(CONFIG_CPU_FREQ_GOV_MINMAX)	+= cpufreq_minmax.o
+obj-$(CONFIG_CPU_FREQ_GOV_HYPER)		+= cpufreq_hyper.o
+#obj-$(CONFIG_CPU_FREQ_GOV_BRAZILIANWAX)	+= cpufreq_brazilianwax.o
+obj-$(CONFIG_CPU_FREQ_GOV_LAZY)		+= cpufreq_lazy.o
+#obj-$(CONFIG_CPU_FREQ_GOV_SAVAGEDZEN)   += cpufreq_savagedzen.o
+obj-$(CONFIG_CPU_FREQ_GOV_LULZACTIVE)	+= cpufreq_lulzactive.o
+#obj-$(CONFIG_CPU_FREQ_GOV_SCARY)  += cpufreq_scary.o
+obj-$(CONFIG_CPU_FREQ_GOV_ONDEMANDX)	+= cpufreq_ondemandx.o
+#obj-$(CONFIG_CPU_FREQ_GOV_PEGASUSQ) += cpufreq_pegasusq.o
+#obj-$(CONFIG_CPU_FREQ_GOV_ADAPTIVE)  += cpufreq_adaptive.o
+#obj-$(CONFIG_CPU_FREQ_GOV_HOTPLUG)	+= cpufreq_hotplug.o
+#obj-$(CONFIG_CPU_FREQ_GOV_LULZACTIVEQ)	+= cpufreq_lulzactiveq.o
+#obj-$(CONFIG_CPU_FREQ_GOV_LAGFREE)	+= cpufreq_lagfree.o
+#obj-$(CONFIG_CPU_FREQ_GOV_SMARTMAX)    += cpufreq_smartmax.o
 
 # CPUfreq cross-arch helpers
 obj-$(CONFIG_CPU_FREQ_TABLE)		+= freq_table.o
@@ -54,3 +84,4 @@ obj-$(CONFIG_ARM_OMAP2PLUS_CPUFREQ)     += omap-cpufreq.o
 ##################################################################################
 # PowerPC platform drivers
 obj-$(CONFIG_CPU_FREQ_MAPLE)		+= maple-cpufreq.o
+
